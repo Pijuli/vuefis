@@ -1,0 +1,76 @@
+<template lang="html">
+  <!-- <div class="relative"> -->
+  <div class="AttitudeIndicator h-full relative">
+    <!-- Top -->
+    <div class="AttitudeIndicator__indicator h-full">
+      <div class="AttitudeIndicator__up flex">
+        <inclination-semicircle />
+        <attitude-lines length="quarter" :position="80" :number="30"/>
+        <attitude-lines length="eight" :position="75"/>
+        <attitude-lines length="quarter" :position="70" :number="20"/>
+        <attitude-lines length="eight" :position="65"/>
+        <attitude-lines length="quarter" :position="60" :number="10"/>
+        <attitude-lines length="eight" :position="55"/>
+      </div>
+      <!-- Bottom -->
+      <div class="AttitudeIndicator__down">
+        <attitude-lines length="eight" :position="45"/>
+        <attitude-lines length="quarter" :position="40" :number="10"/>
+        <attitude-lines length="eight" :position="35"/>
+        <attitude-lines length="quarter" :position="30" :number="20"/>
+        <attitude-lines length="eight" :position="25"/>
+        <attitude-lines length="quarter" :position="20" :number="30"/>
+      </div>
+      <!-- Middle -->
+      <attitude-lines length="full" :position="50"/>
+      
+    </div>
+    <!-- Static -->
+    <static-markers />
+  </div>
+  <!-- </div> -->
+</template>
+
+<script>
+import AttitudeLines from '@/components/AttitudeIndicator/AttitudeLines'
+import StaticMarkers from '@/components/AttitudeIndicator/StaticMarkers'
+import InclinationSemicircle from '@/components/AttitudeIndicator/InclinationSemicircle'
+
+export default  {
+  name: 'AttitudeIndicator',
+  components: {
+    AttitudeLines,
+    StaticMarkers,
+    InclinationSemicircle,
+  },
+}
+
+
+</script>
+
+<style scoped lang="scss">
+.AttitudeIndicator__indicator {
+  animation: spin 6s cubic-bezier(.5, 0, .5, 1) infinite;
+  @keyframes spin {
+    12% { transform: rotate(30deg); }
+    25% { transform: rotate(0deg); }
+    37% { transform: rotate(-30deg); }
+    50% { transform: rotate(0deg); }
+    62% { transform: translateY(30px); }
+    75% { transform: translateY(0px); }
+    87% { transform: translateY(-30px); }
+    100% { transform: translateY(0px); }
+    
+  }
+}
+
+.AttitudeIndicator__up {
+  height: 50%;
+  background-color: #2E6ABE;
+}
+
+.AttitudeIndicator__down {
+  height: 50%;
+  background-color: #EF712A;
+}
+</style>

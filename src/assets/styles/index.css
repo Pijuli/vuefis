@@ -1,0 +1,9 @@
+/* src/assets/styles/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    height: 100vh;
+}
