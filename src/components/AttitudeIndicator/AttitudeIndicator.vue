@@ -1,9 +1,9 @@
 <template lang="html">
-  <!-- <div class="relative"> -->
   <div class="AttitudeIndicator h-full relative">
-    <!-- Top -->
     <div class="AttitudeIndicator__indicator h-full">
-      <div class="AttitudeIndicator__up flex">
+      <!-- Top -->
+      <div class="AttitudeIndicator__up"/>
+      <div class="AttitudeIndicator__upContainer">
         <attitude-lines length="quarter" :position="80" :number="30"/>
         <attitude-lines length="eight" :position="75"/>
         <attitude-lines length="quarter" :position="70" :number="20"/>
@@ -11,8 +11,10 @@
         <attitude-lines length="quarter" :position="60" :number="10"/>
         <attitude-lines length="eight" :position="55"/>
       </div>
+      
       <!-- Bottom -->
-      <div class="AttitudeIndicator__down">
+      <div class="AttitudeIndicator__down"/>
+      <div class="AttitudeIndicator__downContainer">
         <attitude-lines length="eight" :position="45"/>
         <attitude-lines length="quarter" :position="40" :number="10"/>
         <attitude-lines length="eight" :position="35"/>
@@ -20,15 +22,15 @@
         <attitude-lines length="eight" :position="25"/>
         <attitude-lines length="quarter" :position="20" :number="30"/>
       </div>
+
       <!-- Middle -->
       <attitude-lines length="full" :position="50"/>
-      
     </div>
+
     <!-- Static -->
     <static-markers />
     <inclination-circle />
   </div>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -64,12 +66,20 @@ export default  {
 }
 
 .AttitudeIndicator__up {
-  height: 50%;
+  height: 100vh;
+  width: 150vw;
+  position: absolute;
+  top: -50vh;
+  left: -25vw;
   background-color: #2E6ABE;
 }
 
 .AttitudeIndicator__down {
-  height: 50%;
+  height: 100vh;
+  width: 150vw;
+  position: absolute;
+  top: 50vh;
+  left: -25vw;
   background-color: #EF712A;
 }
 </style>

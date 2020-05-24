@@ -44,7 +44,8 @@ export default {
 }
 
 .AttitudeLines--full {
-  width: 100vw;
+  width: 150vw;
+  left: -25vw;
 }
 
 .AttitudeLines--quarter {
