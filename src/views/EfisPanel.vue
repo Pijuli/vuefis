@@ -1,5 +1,5 @@
 <template>
-  <div class="home h-screen overflow-hidden">
+  <div class="EfisPanel h-screen overflow-hidden">
     <AttitudeIndicator />
   </div>
 </template>
@@ -8,7 +8,7 @@
 import AttitudeIndicator from '@/components/AttitudeIndicator'
 
 export default {
-  name: 'Home',
+  name: 'EfisPanel',
   components: {
     AttitudeIndicator,
   },
