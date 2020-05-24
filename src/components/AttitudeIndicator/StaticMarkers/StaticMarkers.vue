@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 .StaticMarkers {
   width: 20vw;
-  height: 40vh;
+  height: 35vh;
   bottom: calc(50% - 3px);
   left: calc(50% - 10vw);
 }

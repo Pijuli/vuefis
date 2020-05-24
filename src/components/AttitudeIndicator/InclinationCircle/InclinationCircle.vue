@@ -52,9 +52,9 @@ export default {
 
 <style lang="scss" scoped>
 .InclinationCircle {
-  top: 32px;
+  top: 57px;
   position: absolute;
-  left: calc(50% - 45vh);
+  left: calc(50% - 40vh);
   animation: spin 6s cubic-bezier(.5, 0, .5, 1) infinite;
   @keyframes spin {
     12% { transform: rotate(30deg); }
@@ -63,7 +63,7 @@ export default {
     50% { transform: rotate(0deg); }
   }
 }
-$size: 90vh;
+$size: 80vh;
 $white: #f4eed7;
 $feature : white;
 

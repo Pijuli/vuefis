@@ -4,23 +4,23 @@
       <!-- Top -->
       <div class="AttitudeIndicator__up"/>
       <div class="AttitudeIndicator__upContainer">
-        <attitude-lines length="quarter" :position="80" :number="30"/>
-        <attitude-lines length="eight" :position="75"/>
-        <attitude-lines length="quarter" :position="70" :number="20"/>
-        <attitude-lines length="eight" :position="65"/>
-        <attitude-lines length="quarter" :position="60" :number="10"/>
-        <attitude-lines length="eight" :position="55"/>
+        <attitude-lines length="quarter" :position="74" :number="30"/>
+        <attitude-lines length="eight" :position="70"/>
+        <attitude-lines length="quarter" :position="66" :number="20"/>
+        <attitude-lines length="eight" :position="62"/>
+        <attitude-lines length="quarter" :position="58" :number="10"/>
+        <attitude-lines length="eight" :position="54"/>
       </div>
       
       <!-- Bottom -->
       <div class="AttitudeIndicator__down"/>
       <div class="AttitudeIndicator__downContainer">
-        <attitude-lines length="eight" :position="45"/>
-        <attitude-lines length="quarter" :position="40" :number="10"/>
-        <attitude-lines length="eight" :position="35"/>
-        <attitude-lines length="quarter" :position="30" :number="20"/>
-        <attitude-lines length="eight" :position="25"/>
-        <attitude-lines length="quarter" :position="20" :number="30"/>
+        <attitude-lines length="eight" :position="46"/>
+        <attitude-lines length="quarter" :position="42" :number="10"/>
+        <attitude-lines length="eight" :position="38"/>
+        <attitude-lines length="quarter" :position="34" :number="20"/>
+        <attitude-lines length="eight" :position="30"/>
+        <attitude-lines length="quarter" :position="26" :number="30"/>
       </div>
 
       <!-- Middle -->
