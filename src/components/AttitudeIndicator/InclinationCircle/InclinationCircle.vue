@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss" scoped>
 .InclinationCircle {
-  top: 57px;
+  top: 12vh;
   position: absolute;
   left: calc(50% - 40vh);
   animation: spin 6s cubic-bezier(.5, 0, .5, 1) infinite;
