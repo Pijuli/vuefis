@@ -15,7 +15,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -33,7 +32,7 @@ export default {
       return Math.floor(this.actualHeading / 10) * 10
     },
     visibleDegrees() {
-      let tmp = [ ...Array(13).keys() ].map(
+      return [ ...Array(13).keys() ].map(
         (i) => {
           let tmp = (this.headingtenth-60)
           if (tmp < 0) {
@@ -41,8 +40,7 @@ export default {
           }
           return (tmp + i * 10)%360
         }
-      )
-      return tmp 
+      ) 
     },
     leftPosition () {
       return -9.09 - ((this.actualHeading)%10 * 0.909)

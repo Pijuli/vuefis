@@ -44,9 +44,6 @@
 <script>
 export default {
   name: 'InclinationCircle',
-  data () {
-    return {}
-  },
 }
 </script>
 
