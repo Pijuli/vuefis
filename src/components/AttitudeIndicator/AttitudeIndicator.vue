@@ -4,7 +4,6 @@
     <!-- Top -->
     <div class="AttitudeIndicator__indicator h-full">
       <div class="AttitudeIndicator__up flex">
-        <inclination-semicircle />
         <attitude-lines length="quarter" :position="80" :number="30"/>
         <attitude-lines length="eight" :position="75"/>
         <attitude-lines length="quarter" :position="70" :number="20"/>
@@ -27,6 +26,7 @@
     </div>
     <!-- Static -->
     <static-markers />
+    <inclination-circle />
   </div>
   <!-- </div> -->
 </template>
@@ -34,14 +34,14 @@
 <script>
 import AttitudeLines from '@/components/AttitudeIndicator/AttitudeLines'
 import StaticMarkers from '@/components/AttitudeIndicator/StaticMarkers'
-import InclinationSemicircle from '@/components/AttitudeIndicator/InclinationSemicircle'
+import InclinationCircle from '@/components/AttitudeIndicator/InclinationCircle'
 
 export default  {
   name: 'AttitudeIndicator',
   components: {
     AttitudeLines,
     StaticMarkers,
-    InclinationSemicircle,
+    InclinationCircle,
   },
 }
 
@@ -60,7 +60,6 @@ export default  {
     75% { transform: translateY(0px); }
     87% { transform: translateY(-30px); }
     100% { transform: translateY(0px); }
-    
   }
 }
 
