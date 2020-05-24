@@ -67,19 +67,19 @@ export default  {
 
 .AttitudeIndicator__up {
   height: 100vh;
-  width: 150vw;
+  width: 120vw;
   position: absolute;
   top: -50vh;
-  left: -25vw;
+  left: -10vw;
   background-color: #2E6ABE;
 }
 
 .AttitudeIndicator__down {
   height: 100vh;
-  width: 150vw;
+  width: 120vw;
   position: absolute;
   top: 50vh;
-  left: -25vw;
+  left: -10vw;
   background-color: #EF712A;
 }
 </style>

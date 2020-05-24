@@ -76,6 +76,8 @@ export default {
   z-index: 1;
   border: 2px solid white;
   font-size: 25px;
+  height: auto;
+  line-height: 26px;
 }
 
 .TopCompass__degreeContainer {
