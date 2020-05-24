@@ -1,4 +1,5 @@
-# vefis
+# vuefis
+Vue implementation of an electronic flight instrument system (EFIS)
 
 ## Project setup
 ```
