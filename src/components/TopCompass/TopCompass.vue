@@ -47,7 +47,7 @@ export default {
     },
   },
   mounted () {
-    this.interval = setInterval(this.simulateHeading, 125)
+    this.interval = setInterval(this.simulateHeading, 1000)
   },
   methods: {
     simulateHeading () {

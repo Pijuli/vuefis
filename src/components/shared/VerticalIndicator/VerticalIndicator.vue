@@ -1,5 +1,19 @@
 <template>
   <div class="VerticalIndicator w-full h-full overflow-hidden relative">
+    <!-- Variance meter -->
+    <div class="VerticalIndicator__variance absolute flex flex-col">
+      <div class="h-full w-full relative">
+        <div 
+          class="VerticalIndicator__varianceTop w-full absolute bg-green-400"
+          :style="{height: getVarianceTop+'%'}"
+        />
+        <div 
+          class="VerticalIndicator__varianceBottom w-full absolute bg-red-400"
+          :style="{height: getVarianceBottom+'%'}"
+        />
+      </div>
+    </div>
+    <!-- Vertical scroll -->
     <div class="VerticalIndicator__value absolute text-center rounded">
       {{value}}
     </div>
@@ -55,6 +69,14 @@ export default {
       type: Number,
       default: undefined,
     },
+    varianceLimit: {
+      type: Number,
+      required: true,
+    },
+    varianceValue: {
+      type: Number,
+      required: true,
+    },
   },
   computed: {
     headingnth () {
@@ -74,10 +96,19 @@ export default {
     blockSize () {
       return 100 / this.see
     },
+    getVarianceTop () {
+      if (this.varianceValue > 0) return this.varianceValue / this.varianceLimit * 50
+      else return 0 
+    },
+    getVarianceBottom () {
+      if (this.varianceValue < 0) return -this.varianceValue / this.varianceLimit * 50
+      else return 0 
+    },
   },
   methods: {
     getLimitColors(givenNumber) {
-      if (givenNumber <= this.baseLimit) return 'bg-white'
+      if (givenNumber < 0) return 'bg-transparent'
+      else if (givenNumber <= this.baseLimit) return 'bg-white'
       else if (givenNumber <= this.firstLimit) return 'bg-green-500'
       else if (givenNumber <= this.secondLimit) return 'bg-yellow-500'
       else return 'bg-red-500'
@@ -87,11 +118,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.VerticalIndicator__variance {
+  height: 80%;
+  width: 10px;
+  left: 0px;
+  top: 10%
+}
+
+.VerticalIndicator__varianceTop {
+  bottom: 50%;
+  transition: height 0.30s ease-out;
+}
+
+.VerticalIndicator__varianceBottom {
+  top: 50%;
+  transition: height 0.30s ease-out;
+}
+
+.VerticalIndicator__container {
+  left: 18px;
+}
+
 .VerticalIndicator__value {
   top: calc(50% - 15px);
   width: 60px;
   height: 30px;
-  left: 12px;
+  left: 30px;
   background-color: black;
   color: white;
   z-index: 1;
