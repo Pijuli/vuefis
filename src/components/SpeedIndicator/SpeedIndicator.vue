@@ -1,7 +1,7 @@
 <template>
   <div class="SpeedIndicator absolute">
     <vertical-indicator
-      :value="actualAltimeter"
+      :value="actualSpeedometer"
       :scale="10"
       :see="6"
       :base-limit="20"
@@ -23,17 +23,17 @@ export default {
   },
   data() {
     return {
-      actualAltimeter: 0,
+      actualSpeedometer: 0,
       actualVario: 0,
     }
   },
   mounted () {
-    this.interval = setInterval(this.simulateAltimeter, 1000)
+    this.interval = setInterval(this.simulateSpeedometer, 1000)
     this.interval = setInterval(this.simulateVario, 2000)
   },
   methods: {
-    simulateAltimeter () {
-      this.actualAltimeter = (this.actualAltimeter + 1)%1000
+    simulateSpeedometer () {
+      this.actualSpeedometer = (this.actualSpeedometer + 1)%1000
     },
     simulateVario () {
       let vario = 0
