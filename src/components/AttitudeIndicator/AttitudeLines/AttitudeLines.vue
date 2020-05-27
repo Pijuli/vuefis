@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .AttitudeLines {
-  height: 2px;
+  height: 1px;
   @apply bg-gray-200;
 }
 

@@ -52,11 +52,11 @@ export default {
     },
   },
   mounted () {
-    this.interval = setInterval(this.simulateHeading, 125)
+    this.interval = setInterval(this.simulateHeading, 1000)
   },
   methods: {
     simulateHeading () {
-      this.actualHeading = (this.actualHeading + 3)%360
+      this.actualHeading = (this.actualHeading + 1)%360
     },
   },
 }
