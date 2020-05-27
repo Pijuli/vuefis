@@ -52,7 +52,7 @@ export default {
   top: 12vh;
   position: absolute;
   left: calc(50% - 40vh);
-  animation: spin 6s cubic-bezier(.5, 0, .5, 1) infinite;
+  animation: spin 12s cubic-bezier(.5, 0, .5, 1) infinite;
   @keyframes spin {
     12% { transform: rotate(30deg); }
     25% { transform: rotate(0deg); }

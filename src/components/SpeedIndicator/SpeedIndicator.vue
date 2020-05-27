@@ -1,5 +1,5 @@
 <template>
-  <div class="AltimeterIndicator absolute">
+  <div class="SpeedIndicator absolute">
     <vertical-indicator
       :value="actualAltimeter"
       :scale="10"
@@ -17,7 +17,7 @@
 import VerticalIndicator from '@/components/shared/VerticalIndicator'
 
 export default {
-  name: 'AltimeterIndicator',
+  name: 'SpeedIndicator',
   components: {
     VerticalIndicator,
   },
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.AltimeterIndicator {
+.SpeedIndicator {
   height: 70vh;
   width: 20vh;
   left: 15px;
