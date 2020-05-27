@@ -38,7 +38,12 @@ export default {
           if (tmp < 0) {
             tmp += 360
           }
-          return (tmp + i * 10)%360
+          const degree = (tmp + i * 10)%360
+          if (degree == 0) return 'N'
+          else if (degree == 90) return 'E' 
+          else if(degree == 180) return 'S' 
+          else if(degree == 270) return 'W' 
+          return degree
         }
       ) 
     },
@@ -47,11 +52,11 @@ export default {
     },
   },
   mounted () {
-    this.interval = setInterval(this.simulateHeading, 1000)
+    this.interval = setInterval(this.simulateHeading, 125)
   },
   methods: {
     simulateHeading () {
-      this.actualHeading = (this.actualHeading + 1)%360
+      this.actualHeading = (this.actualHeading + 3)%360
     },
   },
 }
