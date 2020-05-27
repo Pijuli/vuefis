@@ -3,6 +3,7 @@
     <attitude-indicator />
     <top-compass />
     <slip-indicator />
+    <altimeter-indicator />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import AttitudeIndicator from '@/components/AttitudeIndicator'
 import TopCompass from '@/components/TopCompass'
 import SlipIndicator from '@/components/SlipIndicator'
+import AltimeterIndicator from '@/components/AltimeterIndicator'
 
 export default {
   name: 'EfisPanel',
@@ -17,6 +19,7 @@ export default {
     AttitudeIndicator,
     TopCompass,
     SlipIndicator,
+    AltimeterIndicator,
   },
   computed: {
     name() {

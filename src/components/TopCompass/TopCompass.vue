@@ -47,7 +47,7 @@ export default {
     },
   },
   mounted () {
-    this.interval = setInterval(this.simulateHeading, 1000)
+    this.interval = setInterval(this.simulateHeading, 125)
   },
   methods: {
     simulateHeading () {
@@ -96,5 +96,4 @@ export default {
   border-right: 1px solid white;
   height: 5px;
 }
-
 </style>

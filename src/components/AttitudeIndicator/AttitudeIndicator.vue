@@ -80,6 +80,6 @@ export default  {
   position: absolute;
   top: 50vh;
   left: -10vw;
-  background-color: #EF712A;
+  background-color: #4A5100;
 }
 </style>
