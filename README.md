@@ -12,16 +12,12 @@ npm install
 ```
 npm run serve
 ```
+or in an electron instance
+```
+npm run electron:serve
+```
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm electron:build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
