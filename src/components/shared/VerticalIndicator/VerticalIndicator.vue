@@ -1,5 +1,8 @@
 <template>
-  <div class="VerticalIndicator w-full h-full overflow-hidden relative">
+  <div 
+    class="VerticalIndicator w-full h-full overflow-hidden relative"
+    :class="{ VerticalIndicator__mirror: mirror }"
+  >
     <!-- Variance meter -->
     <div class="VerticalIndicator__variance absolute flex flex-col">
       <div class="h-full w-full relative">
@@ -28,10 +31,16 @@
         :style="{minHeight: blockSize + '%'}"
       >
         <div class="h-full">
-          <div class="VerticalIndicator__step" :class="getLimitColors(givenNumber)"/>
-          <div class="VerticalIndicator__step" :class="getLimitColors(givenNumber)"/>
+          <div
+            class="VerticalIndicator__step" 
+            :class="getLimitColors(givenNumber)"
+          />
+          <div 
+            class="VerticalIndicator__step" 
+            :class="getLimitColors(givenNumber)"
+          />
         </div>
-        <div class="ml-1">
+        <div class="VerticalIndicator__stepNumber">
           <span v-if="givenNumber >= 0">
             {{givenNumber}}
           </span>
@@ -53,7 +62,7 @@ export default {
       type: Number,
       required: true,
     },
-    see: {
+    see: { //TODO Vertical displacement is not properly calculated if != 6
       type: Number,
       required: true,
     },
@@ -77,6 +86,10 @@ export default {
       type: Number,
       required: true,
     },
+    mirror: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     headingnth () {
@@ -91,7 +104,7 @@ export default {
       ) 
     },
     bottomPosition () {
-      return (this.blockSize * -0.5) - ((((this.value)%this.scale)/10) * this.blockSize) 
+      return (this.blockSize * -0.5) - ((((this.value)%this.scale)/this.scale) * this.blockSize) 
     },
     blockSize () {
       return 100 / this.see
@@ -121,7 +134,7 @@ export default {
 .VerticalIndicator__variance {
   height: 80%;
   width: 10px;
-  left: 0px;
+  left: 0;
   top: 10%
 }
 
@@ -137,6 +150,10 @@ export default {
 
 .VerticalIndicator__container {
   left: 18px;
+}
+
+.VerticalIndicator__stepNumber {
+  @apply ml-1;
 }
 
 .VerticalIndicator__value {
@@ -156,5 +173,31 @@ export default {
   margin-top: 2px;
   height: calc(50% - 2px);
   width: 10px;
+}
+
+.VerticalIndicator__mirror {
+
+  .VerticalIndicator__variance {
+    left: auto;
+    right: 0px;
+  }
+
+  .VerticalIndicator__container {
+    left: auto;
+    right: 18px;
+  }
+
+  .VerticalIndicator__stepContainer {
+    @apply flex-row-reverse;
+  }
+
+  .VerticalIndicator__stepNumber {
+    @apply ml-0 mr-1;
+  }
+
+  .VerticalIndicator__value {
+    left: auto;
+    right: 30px;
+  }
 }
 </style>

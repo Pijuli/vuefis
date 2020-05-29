@@ -4,6 +4,7 @@
     <top-compass />
     <slip-indicator />
     <speed-indicator />
+    <altitude-indicator />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import AttitudeIndicator from '@/components/AttitudeIndicator'
 import TopCompass from '@/components/TopCompass'
 import SlipIndicator from '@/components/SlipIndicator'
 import SpeedIndicator from '@/components/SpeedIndicator'
+import AltitudeIndicator from '@/components/AltitudeIndicator'
 
 export default {
   name: 'EfisPanel',
@@ -20,6 +22,7 @@ export default {
     TopCompass,
     SlipIndicator,
     SpeedIndicator,
+    AltitudeIndicator,
   },
   computed: {
     name() {
