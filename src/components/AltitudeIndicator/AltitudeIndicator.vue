@@ -7,8 +7,9 @@
       :base-limit="0"
       :first-limit="1200"
       :second-limit="1200"
-      :variance-limit="1"
+      :variance-limit="2"
       :variance-value="actualVario"
+      variance-scale-show
       mirror
     />
   </div>
@@ -40,7 +41,7 @@ export default {
       let vario = 0
       vario = Math.floor(Math.random()*99) / 100
       vario *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
-      this.actualVario = vario
+      this.actualVario = vario*2
     },
   },
 }

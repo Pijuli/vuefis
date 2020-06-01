@@ -6,6 +6,7 @@
     <!-- Variance meter -->
     <div class="VerticalIndicator__variance absolute flex flex-col">
       <div class="h-full w-full relative">
+        <!-- Bars -->
         <div 
           class="VerticalIndicator__varianceTop w-full absolute bg-green-400"
           :style="{height: getVarianceTop+'%'}"
@@ -14,8 +15,27 @@
           class="VerticalIndicator__varianceBottom w-full absolute bg-red-400"
           :style="{height: getVarianceBottom+'%'}"
         />
+        <!-- scale -->
+        <div v-if="varianceScaleShow" class="text-white leading-tight">
+          <div class="absolute" style="top:calc(0% - 10px)">
+            {{varianceLimit}}
+          </div>
+          <div class="absolute" style="top:calc(25% - 10px)">
+            {{varianceLimit/2}}
+          </div>
+          <div class="absolute" style="top:calc(50% - 10px)">
+            0
+          </div>
+          <div class="absolute" style="top:calc(75% - 10px)">
+            {{-varianceLimit/2}}
+          </div>
+          <div class="absolute" style="top:calc(100% - 10px)">
+            {{-varianceLimit}}
+          </div>
+        </div>
       </div>
     </div>
+
     <!-- Vertical scroll -->
     <div class="VerticalIndicator__value absolute text-center rounded">
       {{value}}
@@ -86,6 +106,10 @@ export default {
       type: Number,
       required: true,
     },
+    varianceScaleShow: {
+      type: Boolean,
+      default: false,
+    },
     mirror: {
       type: Boolean,
       default: false,
@@ -134,7 +158,7 @@ export default {
 .VerticalIndicator__variance {
   height: 80%;
   width: 10px;
-  left: 0;
+  left: 2px;
   top: 10%
 }
 
@@ -179,7 +203,7 @@ export default {
 
   .VerticalIndicator__variance {
     left: auto;
-    right: 0px;
+    right: 2px;
   }
 
   .VerticalIndicator__container {
