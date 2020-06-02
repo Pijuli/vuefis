@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="AttitudeIndicator h-full relative">
-    <div class="AttitudeIndicator__indicator h-full">
+    <div
+      class="AttitudeIndicator__indicator h-full"
+      :style="rollAndPitch"
+    >
       <!-- Top -->
       <div class="AttitudeIndicator__up"/>
       <div class="AttitudeIndicator__upContainer">
@@ -29,11 +32,14 @@
 
     <!-- Static -->
     <static-markers />
-    <inclination-circle />
+    <inclination-circle :roll="roll"/>
   </div>
 </template>
 
 <script>
+import { DATA_NAMESPACE } from '@/store/store-types'
+import { mapState } from 'vuex'
+
 import AttitudeLines from '@/components/AttitudeIndicator/AttitudeLines'
 import StaticMarkers from '@/components/AttitudeIndicator/StaticMarkers'
 import InclinationCircle from '@/components/AttitudeIndicator/InclinationCircle'
@@ -45,6 +51,14 @@ export default  {
     StaticMarkers,
     InclinationCircle,
   },
+  computed: {
+    ...mapState(DATA_NAMESPACE, ['pitch','roll']),
+    rollAndPitch () {
+      return {
+        transform: `rotate(${this.roll}deg) translateY(${this.pitch * 3.85}px)`,
+      }
+    },
+  },
 }
 
 
@@ -52,17 +66,8 @@ export default  {
 
 <style scoped lang="scss">
 .AttitudeIndicator__indicator {
-  animation: spin 12s cubic-bezier(.5, 0, .5, 1) infinite;
-  @keyframes spin {
-    12% { transform: rotate(30deg); }
-    25% { transform: rotate(0deg); }
-    37% { transform: rotate(-30deg); }
-    50% { transform: rotate(0deg); }
-    62% { transform: translateY(30px); }
-    75% { transform: translateY(0px); }
-    87% { transform: translateY(-30px); }
-    100% { transform: translateY(0px); }
-  }
+  transition: all 0.2s linear;
+  will-change: transform;
 }
 
 .AttitudeIndicator__up {

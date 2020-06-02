@@ -1,7 +1,7 @@
 <template>
   <div class="TopCompass absolute">
     <div class="TopCompass__heading absolute text-center rounded">
-      {{actualHeading}}
+      {{compass}}
     </div>
     <div class="TopCompass__degreeContainer absolute flex" :style="{left:leftPosition+'vw'}">
       <div class="TopCompass__10deg text-white" v-for="(degrees, index) in visibleDegrees" :key="index">
@@ -20,16 +20,15 @@
 </template>
 
 <script>
+import { DATA_NAMESPACE } from '@/store/store-types'
+import { mapState } from 'vuex'
+
 export default {
   name: 'TopCompass',
-  data() {
-    return {
-      actualHeading: 0,
-    }
-  },
   computed: {
+    ...mapState(DATA_NAMESPACE, ['compass']),
     headingtenth () {
-      return Math.floor(this.actualHeading / 10) * 10
+      return Math.floor(this.compass / 10) * 10
     },
     visibleDegrees() {
       return [ ...Array(13).keys() ].map(
@@ -48,15 +47,7 @@ export default {
       ) 
     },
     leftPosition () {
-      return -9.09 - ((this.actualHeading)%10 * 0.909)
-    },
-  },
-  mounted () {
-    this.interval = setInterval(this.simulateHeading, 1000)
-  },
-  methods: {
-    simulateHeading () {
-      this.actualHeading = (this.actualHeading + 1)%360
+      return -9.09 - ((this.compass)%10 * 0.909)
     },
   },
 }

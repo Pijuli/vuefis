@@ -1,11 +1,16 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-Vue.use(Vuex);
+import config from './modules/config'
+import data from './modules/data'
+import simulate from './modules/simulate'
+
+Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+  modules: {
+    config,
+    data,
+    simulate,
+  },
+})

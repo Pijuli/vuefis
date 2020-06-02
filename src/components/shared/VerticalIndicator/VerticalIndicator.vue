@@ -4,7 +4,10 @@
     :class="{ VerticalIndicator__mirror: mirror }"
   >
     <!-- Variance meter -->
-    <div class="VerticalIndicator__variance absolute flex flex-col">
+    <div
+      v-if="varianceShow"
+      class="VerticalIndicator__variance absolute flex flex-col"
+    >
       <div class="h-full w-full relative">
         <!-- Bars -->
         <div 
@@ -16,7 +19,10 @@
           :style="{height: getVarianceBottom+'%'}"
         />
         <!-- scale -->
-        <div v-if="varianceScaleShow" class="text-white leading-tight">
+        <div
+          v-if="varianceScaleShow"
+          class="text-white leading-tight"
+        >
           <div class="absolute" style="top:calc(0% - 10px)">
             {{varianceLimit}}
           </div>
@@ -98,13 +104,17 @@ export default {
       type: Number,
       default: undefined,
     },
+    varianceShow: {
+      type: Boolean,
+      default: false,
+    },
     varianceLimit: {
       type: Number,
-      required: true,
+      default: 0,
     },
     varianceValue: {
       type: Number,
-      required: true,
+      default: 0,
     },
     varianceScaleShow: {
       type: Boolean,

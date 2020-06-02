@@ -1,5 +1,8 @@
 <template>
-  <div class="InclinationCircle">
+  <div
+    class="InclinationCircle"
+    :style="getRoll"
+  >
     <div class="InclinationCircle__circle">
       <section class="InclinationCircle__circle__indicator"/>
       <section class="InclinationCircle__circle__indicator"/>
@@ -44,6 +47,17 @@
 <script>
 export default {
   name: 'InclinationCircle',
+  props: {
+    roll: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    getRoll() {
+      return {transform: `rotate(${this.roll}deg)`}
+    },
+  },
 }
 </script>
 
@@ -52,13 +66,8 @@ export default {
   top: 12vh;
   position: absolute;
   left: calc(50% - 40vh);
-  animation: spin 12s cubic-bezier(.5, 0, .5, 1) infinite;
-  @keyframes spin {
-    12% { transform: rotate(30deg); }
-    25% { transform: rotate(0deg); }
-    37% { transform: rotate(-30deg); }
-    50% { transform: rotate(0deg); }
-  }
+  transition: transform 0.2s linear;
+  will-change: transform;
 }
 $size: 80vh;
 $white: #f4eed7;
