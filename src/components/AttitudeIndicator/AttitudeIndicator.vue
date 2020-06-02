@@ -66,8 +66,8 @@ export default  {
 
 <style scoped lang="scss">
 .AttitudeIndicator__indicator {
-  transition: all 0.2s linear;
-  will-change: transform;
+  // transition: all 0.2s linear;
+  // will-change: transform;
 }
 
 .AttitudeIndicator__up {

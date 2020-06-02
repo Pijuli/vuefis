@@ -66,8 +66,8 @@ export default {
   top: 12vh;
   position: absolute;
   left: calc(50% - 40vh);
-  transition: transform 0.2s linear;
-  will-change: transform;
+  // transition: transform 0.2s linear;
+  // will-change: transform;
 }
 $size: 80vh;
 $white: #f4eed7;
