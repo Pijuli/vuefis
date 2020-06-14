@@ -63,7 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .InclinationCircle {
-  top: 12vh;
+  top: 11.9vh;
   position: absolute;
   left: calc(50% - 40vh);
   // transition: transform 0.2s linear;

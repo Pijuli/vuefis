@@ -43,8 +43,8 @@
     </div>
 
     <!-- Vertical scroll -->
-    <div class="VerticalIndicator__value absolute text-center rounded">
-      {{value}}
+    <div class="VerticalIndicator__value absolute">
+      <value-pointer-box :value="value" :direction="mirror ? 'right' : 'left'"/>
     </div>
     <div
       class="VerticalIndicator__container h-full absolute flex flex-col-reverse"
@@ -77,8 +77,13 @@
 </template>
 
 <script>
+import ValuePointerBox from '@/components/shared/ValuePointerBox'
+
 export default {
   name: 'VerticalIndicator',
+  components: {
+    ValuePointerBox,
+  },
   props: {
     value: {
       type: Number,
@@ -197,12 +202,7 @@ export default {
   width: 60px;
   height: 30px;
   left: 30px;
-  background-color: black;
-  color: white;
-  z-index: 1;
-  border: 2px solid white;
-  font-size: 25px;
-  line-height: 26px;
+  z-index: 10;
 }
 
 .VerticalIndicator__step {

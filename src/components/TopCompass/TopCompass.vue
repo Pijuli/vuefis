@@ -1,7 +1,7 @@
 <template>
   <div class="TopCompass absolute">
-    <div class="TopCompass__heading absolute text-center rounded">
-      {{compass}}
+    <div class="TopCompass__heading absolute">
+      <value-pointer-box :value="compass" direction="down"/>
     </div>
     <div class="TopCompass__degreeContainer absolute flex" :style="{left:leftPosition+'vw'}">
       <div class="TopCompass__10deg text-white" v-for="(degrees, index) in visibleDegrees" :key="index">
@@ -22,9 +22,13 @@
 <script>
 import { DATA_NAMESPACE } from '@/store/store-types'
 import { mapState } from 'vuex'
+import ValuePointerBox from '@/components/shared/ValuePointerBox'
 
 export default {
   name: 'TopCompass',
+  components: {
+    ValuePointerBox,
+  },
   computed: {
     ...mapState(DATA_NAMESPACE, ['compass']),
     headingtenth () {
@@ -65,13 +69,7 @@ export default {
   top: 2px;
   width: 60px;
   left: calc(50vw - 30px);
-  background-color: black;
-  color: white;
   z-index: 1;
-  border: 2px solid white;
-  font-size: 25px;
-  height: auto;
-  line-height: 26px;
 }
 
 .TopCompass__degreeContainer {
