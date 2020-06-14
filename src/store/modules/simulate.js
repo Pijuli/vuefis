@@ -3,6 +3,10 @@ import { DATA_NAMESPACE } from '@/store/store-types'
 
 function simulate () {
   store.commit(`${DATA_NAMESPACE}/setAlt`, (store.state.data.alt+3) % 1200)
+  if(store.state.data.vario >= 2) {
+    store.commit(`${DATA_NAMESPACE}/setVario`, -2)
+  }
+  store.commit(`${DATA_NAMESPACE}/setVario`, store.state.data.vario+0.01)
   store.commit(`${DATA_NAMESPACE}/setAs`, (store.state.data.as+1) % 120)
   if(store.state.data.pitch === 30) {
     store.commit(`${DATA_NAMESPACE}/setPitch`, -30)

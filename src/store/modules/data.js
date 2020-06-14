@@ -35,6 +35,9 @@ export default {
     ['setAlt']: (state, newAlt) => {
       state.alt = newAlt
     },
+    ['setVario']: (state, newVario) => {
+      state.vario = newVario
+    },
     ['setAs']: (state, newAs) => {
       state.as = newAs
     },
