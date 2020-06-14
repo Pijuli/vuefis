@@ -2,8 +2,8 @@
   <div class="SpeedIndicator absolute">
     <vertical-indicator
       :value="as"
-      :scale="10"
-      :see="6"
+      :scale="speedScale"
+      :see="speedSee"
       :base-limit="speedBaseLimit"
       :first-limit="speedFirstLimit"
       :second-limit="speedSecondLimit"
@@ -23,7 +23,10 @@ export default {
   },
   computed: {
     ...mapState(DATA_NAMESPACE, ['as']),
-    ...mapState(CONFIG_NAMESPACE, ['speedBaseLimit', 'speedFirstLimit', 'speedSecondLimit']),
+    ...mapState(CONFIG_NAMESPACE, [
+      'speedSee', 'speedScale',
+      'speedBaseLimit', 'speedFirstLimit', 'speedSecondLimit',
+    ]),
   },
 }
 </script>

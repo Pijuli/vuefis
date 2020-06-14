@@ -4,12 +4,14 @@
       {{label}}
     </div>
     <div
+      v-if="!hideTenths"
       class="ConfigNumberInput__button mr-2"
       @click="modify(-10)"
     >
       -10
     </div>
     <div
+      v-if="!hideUnits"
       class="ConfigNumberInput__button mr-2"
       @click="modify(-1)"
     >
@@ -18,18 +20,20 @@
     <input
       class="ConfigNumberInput__input" type="number" v-model="inputvalue">
     <div
+      v-if="!hideUnits"
       class="ConfigNumberInput__button ml-2"
       @click="modify(+1)"
     >
       +1
     </div>
     <div
+      v-if="!hideTenths"
       class="ConfigNumberInput__button ml-2"
       @click="modify(+10)"
     >
       +10
     </div>
-    <span class="pl-3">mph</span>
+    <span class="pl-3">{{units}}</span>
   </div>
 </template>
 
@@ -46,6 +50,18 @@ export default {
     label: {
       type: String,
       required: true,
+    },
+    units: {
+      type: String,
+      default: '',
+    },
+    hideUnits: {
+      type: Boolean,
+      default: false,
+    },
+    hideTenths:  {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

@@ -18,16 +18,20 @@
     <divider />
     <h1 class="text-center">Speed</h1>
     <div>
-      <config-number-input label="Base Limit" state-name="speedBaseLimit"/>
-      <config-number-input label="First Limit" state-name="speedFirstLimit"/>
-      <config-number-input label="Second Limit" state-name="speedSecondLimit"/>
+      <config-number-input units="mph" label="Base Limit" state-name="speedBaseLimit"/>
+      <config-number-input units="mph" label="First Limit" state-name="speedFirstLimit"/>
+      <config-number-input units="mph" label="Second Limit" state-name="speedSecondLimit"/>
+      <config-number-input units="blocks" label="See" state-name="speedSee" hide-tenths/>
+      <config-number-input units="mph" label="Scale" state-name="speedScale" hide-units/>
     </div>
     <divider />
     <h1 class="text-center">Altitude</h1>
     <div>
-      <config-number-input label="Base Limit" state-name="altitudeBaseLimit"/>
-      <config-number-input label="First Limit" state-name="altitudeFirstLimit"/>
-      <config-number-input label="Second Limit" state-name="altitudeSecondLimit"/>
+      <config-number-input units="feet" label="Base Limit" state-name="altitudeBaseLimit"/>
+      <config-number-input units="feet" label="First Limit" state-name="altitudeFirstLimit"/>
+      <config-number-input units="feet" label="Second Limit" state-name="altitudeSecondLimit"/>
+      <config-number-input units="blocks" label="See" state-name="altitudeSee" hide-tenths/>
+      <config-number-input units="feet" label="Scale" state-name="altitudeScale" hide-units/>
     </div>
   </div>
 </template>

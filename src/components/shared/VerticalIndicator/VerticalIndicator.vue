@@ -51,7 +51,7 @@
       :style="{bottom:bottomPosition+'%'}"
     >
       <div 
-        class="VerticalIndicator__stepContainer text-white flex items-center" 
+        class="VerticalIndicator__stepContainer text-white flex relative" 
         v-for="(givenNumber, index) in numberArray" 
         :key="index"
         :style="{minHeight: blockSize + '%'}"
@@ -138,7 +138,7 @@ export default {
       ) 
     },
     bottomPosition () {
-      return (this.blockSize * -0.5) - ((((this.value)%this.scale)/this.scale) * this.blockSize) 
+      return -((((this.value)%this.scale)/this.scale) * this.blockSize) 
     },
     blockSize () {
       return 100 / this.see
@@ -155,9 +155,9 @@ export default {
   methods: {
     getLimitColors(givenNumber) {
       if (givenNumber < 0) return 'bg-transparent'
-      else if (givenNumber <= this.baseLimit) return 'bg-white'
-      else if (givenNumber <= this.firstLimit) return 'bg-green-500'
-      else if (givenNumber <= this.secondLimit) return 'bg-yellow-500'
+      else if (givenNumber < this.baseLimit) return 'bg-white'
+      else if (givenNumber < this.firstLimit) return 'bg-green-500'
+      else if (givenNumber < this.secondLimit) return 'bg-yellow-500'
       else return 'bg-red-500'
     },
   },
@@ -187,7 +187,9 @@ export default {
 }
 
 .VerticalIndicator__stepNumber {
-  @apply ml-1;
+  @apply absolute;
+  bottom: -12px;
+  left: 14px;
 }
 
 .VerticalIndicator__value {
@@ -232,6 +234,11 @@ export default {
   .VerticalIndicator__value {
     left: auto;
     right: 30px;
+  }
+
+  .VerticalIndicator__stepNumber {
+    left: auto;
+    right: 12px;
   }
 }
 </style>

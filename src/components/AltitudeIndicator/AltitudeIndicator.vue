@@ -2,8 +2,8 @@
   <div class="AltitudeIndicator absolute">
     <vertical-indicator
       :value="alt"
-      :scale="100"
-      :see="6"
+      :scale="altitudeScale"
+      :see="altitudeSee"
       :base-limit="altitudeBaseLimit"
       :first-limit="altitudeFirstLimit"
       :second-limit="altitudeSecondLimit"
@@ -28,7 +28,10 @@ export default {
   },
   computed: {
     ...mapState(DATA_NAMESPACE, ['alt', 'vario']),
-    ...mapState(CONFIG_NAMESPACE, ['altitudeBaseLimit', 'altitudeFirstLimit', 'altitudeSecondLimit']),
+    ...mapState(CONFIG_NAMESPACE, [
+      'altitudeSee', 'altitudeScale',
+      'altitudeBaseLimit', 'altitudeFirstLimit', 'altitudeSecondLimit',
+    ]),
   },
 }
 </script>
