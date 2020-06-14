@@ -4,9 +4,9 @@
       :value="alt"
       :scale="100"
       :see="6"
-      :base-limit="0"
-      :first-limit="1200"
-      :second-limit="1200"
+      :base-limit="altitudeBaseLimit"
+      :first-limit="altitudeFirstLimit"
+      :second-limit="altitudeSecondLimit"
       :variance-limit="2"
       :variance-value="vario"
       variance-show
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { DATA_NAMESPACE } from '@/store/store-types'
+import { DATA_NAMESPACE, CONFIG_NAMESPACE } from '@/store/store-types'
 import { mapState } from 'vuex'
 import VerticalIndicator from '@/components/shared/VerticalIndicator'
 
@@ -28,6 +28,7 @@ export default {
   },
   computed: {
     ...mapState(DATA_NAMESPACE, ['alt', 'vario']),
+    ...mapState(CONFIG_NAMESPACE, ['altitudeBaseLimit', 'altitudeFirstLimit', 'altitudeSecondLimit']),
   },
 }
 </script>

@@ -4,15 +4,15 @@
       :value="as"
       :scale="10"
       :see="6"
-      :base-limit="20"
-      :first-limit="50"
-      :second-limit="70"
+      :base-limit="speedBaseLimit"
+      :first-limit="speedFirstLimit"
+      :second-limit="speedSecondLimit"
     />
   </div>
 </template>
 
 <script>
-import { DATA_NAMESPACE } from '@/store/store-types'
+import { DATA_NAMESPACE, CONFIG_NAMESPACE } from '@/store/store-types'
 import { mapState } from 'vuex'
 import VerticalIndicator from '@/components/shared/VerticalIndicator'
 
@@ -23,6 +23,7 @@ export default {
   },
   computed: {
     ...mapState(DATA_NAMESPACE, ['as']),
+    ...mapState(CONFIG_NAMESPACE, ['speedBaseLimit', 'speedFirstLimit', 'speedSecondLimit']),
   },
 }
 </script>

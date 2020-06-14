@@ -5,7 +5,7 @@
     <slip-indicator />
     <speed-indicator />
     <altitude-indicator />
-    <router-link class="EfisPanel__config" to="/config">Config</router-link>
+    <router-link class="EfisPanel__config text-white" to="/config">CONFIG</router-link>
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 .EfisPanel__config {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 10px;
 }
 </style>
